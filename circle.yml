@@ -1,20 +1,12 @@
 dependencies:
-  override:
-    - yarn
   pre:
-    - yarn add babel-core
-    - yarn add babel-loader
-    - yarn add babel-preset-es2015
-    - yarn add babel-preset-react
-    - yarn add enzyme
-    - yarn add enzyme-adapter-react-16
-    - yarn add express
-    - yarn add jquery
-    - yarn add mongoose
-    - yarn add node
-    - yarn add react
-    - yarn add react-dom
-    - yarn add react-test-renderer
-    - yarn add sinon
-    - yarn add supertest
-    - yarn add webpack
+    -npm install enzyme
+     -npm install enzyme-adapter-react-16
+     -npm install express
+     -npm install jquery
+     -npm install mongoose
+     -npm install react
+     -npm install react-dom
+     -npm install sinon
+     -npm install supertest
+     -npm install webpack
