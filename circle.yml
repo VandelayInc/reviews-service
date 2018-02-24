@@ -2,7 +2,6 @@ dependencies:
   override:
     - yarn
   pre:
-    - yarn add node
     - yarn add babel-core
     - yarn add babel-loader
     - yarn add babel-preset-es2015
