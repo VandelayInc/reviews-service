@@ -13,9 +13,6 @@ jobs:
       - run:
           name: install-jest
           command: 'sudo npm install -g jest'
-      - run:
-          name: seed-database
-          command: 'node "./database/seed.js"'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - save_cache:
