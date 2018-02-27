@@ -30,7 +30,7 @@ db.once('open', function() {
       throw err;
     }
     data = JSON.parse(JSON.parse(data));
-    for (let key in data) {
+    for (var key in data) {
       data[key].reviews.forEach((review) => {
         review.first_name = review.author.first_name;
         review.picture_url = review.author.picture_url;

@@ -11,10 +11,13 @@ jobs:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
       - run:
-          name: jest
+          name: run-database
+          command: 'mongod'
+      - run:
+          name: install-jest
           command: 'sudo npm install -g jest'
       - run:
-          name: seedDb
+          name: seed-database
           command: 'node "./database/seed.js"'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
