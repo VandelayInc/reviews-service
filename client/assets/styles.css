@@ -1,0 +1,59 @@
+.reviews-section {
+  font-family: Circular, '-apple-system', BlinkMacSystemFont, Roboto, 'Helvetica Neue', 'sans-serif';
+  line-height: 30px;
+  letter-spacing: .-0.6px;
+  color: #484848;
+}
+
+.reviews-section h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.reviews-rating-body h3 {
+  width: 25%;
+  font-weight: 300;
+  font-size: 17px;
+  margin: 0;
+}
+
+.reviews-rating {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100px;
+  padding-left: 15px;
+}
+
+.reviews-cell {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding: 0 3px;
+}
+
+.reviews-head {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid #DBDBDB;
+}
+
+.reviews-rating-body {
+  display: flex;
+  flex-flow: column wrap;
+  height: 205px;
+}
+
+.reviews-rating-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 45%;
+  height: 35px;
+  padding: 10px;
+}
+
+.reviews-rating-col {
+  height: 100%;
+  width: 5%;
+}

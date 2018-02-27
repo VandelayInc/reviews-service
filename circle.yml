@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/mern-starter
+    working_directory: ~/reviews
     docker:
       - image: circleci/node:4.8.2
       - image: mongo:3.4.4
@@ -10,6 +10,12 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
+      - run:
+          name: jest
+          command: 'sudo npm install -g jest'
+      - run:
+          name: seedDb
+          command: 'node "./database/seed.js"'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - save_cache:
