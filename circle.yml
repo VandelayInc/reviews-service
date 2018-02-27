@@ -11,9 +11,6 @@ jobs:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
       - run:
-          name: run-database
-          command: 'mongod'
-      - run:
           name: install-jest
           command: 'sudo npm install -g jest'
       - run:
