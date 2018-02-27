@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
+var mongoose = require('mongoose');
+var fs = require('fs');
 
 mongoose.connect('mongodb://localhost/hacknb');
 
-let db = mongoose.connection;
+var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connected to database!');
 
   mongoose.connection.db.dropDatabase();
 
-  let reviewSchema = mongoose.Schema({
+  var reviewSchema = mongoose.Schema({
     listing_id: Number,
     created_at: String,
     first_name: String,
@@ -20,7 +20,7 @@ db.once('open', function() {
     identity_verified: Boolean
   });
 
-  let Review = mongoose.model('Review', reviewSchema);
+  var Review = mongoose.model('Review', reviewSchema);
 
   fs.readFile(__dirname + '/reviews.json', {
     encoding: 'utf-8'
@@ -47,7 +47,7 @@ db.once('open', function() {
     }
   });
 
-  let ratingSchema = mongoose.Schema({
+  var ratingSchema = mongoose.Schema({
     listing_id: Number,
     star_rating: Number,
     review_rating_accuracy: Number,
@@ -58,7 +58,7 @@ db.once('open', function() {
     review_rating_value: Number
   });
 
-  let Rating = mongoose.model('Rating', ratingSchema);
+  var Rating = mongoose.model('Rating', ratingSchema);
 
   fs.readFile(__dirname + '/listings.json', {
     encoding: 'utf-8'
