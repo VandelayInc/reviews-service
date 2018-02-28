@@ -23,4 +23,23 @@ let findRatings = (id, callback) => {
   exec(callback);
 };
 
+let reviewSchema = mongoose.Schema({
+    listing_id: Number,
+    created_at: String,
+    first_name: String,
+    picture_url: String,
+    comments: String,
+    has_profile_pic: Boolean,
+    identity_verified: Boolean
+  });
+
+let Reviews = mongoose.model('Reviews', reviewSchema);
+
+let findReviews = (id, callback) => {
+  Reviews.find().
+  where('listing_id').equals(id).
+  exec(callback);
+}
+
 exports.findRatings = findRatings;
+exports.findReviews = findReviews;

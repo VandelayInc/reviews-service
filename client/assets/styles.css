@@ -1,21 +1,18 @@
-.reviews-section {
+/*
+======Rating Component Styles======
+*/
+.reviews-rating-section {
   font-family: Circular, '-apple-system', BlinkMacSystemFont, Roboto, 'Helvetica Neue', 'sans-serif';
   line-height: 30px;
   letter-spacing: .-0.6px;
   color: #484848;
 }
 
-.reviews-section h2 {
+.reviews-rating-section h2 {
   font-size: 25px;
   font-weight: 700;
 }
 
-.reviews-rating-body h3 {
-  width: 25%;
-  font-weight: 300;
-  font-size: 17px;
-  margin: 0;
-}
 
 .reviews-rating {
   display: flex;
@@ -25,14 +22,14 @@
   padding-left: 15px;
 }
 
-.reviews-cell {
+.reviews-rating-cell {
   display: inline-block;
   width: 1em;
   height: 1em;
   padding: 0 3px;
 }
 
-.reviews-head {
+.reviews-rating-head {
   display: flex;
   justify-content: flex-start;
   border-bottom: 1px solid #DBDBDB;
@@ -42,6 +39,13 @@
   display: flex;
   flex-flow: column wrap;
   height: 205px;
+}
+
+.reviews-rating-body h3 {
+  width: 25%;
+  font-weight: 300;
+  font-size: 17px;
+  margin: 0;
 }
 
 .reviews-rating-container {
@@ -56,4 +60,74 @@
 .reviews-rating-col {
   height: 100%;
   width: 5%;
+}
+
+/*
+======Reviews Component Styles======
+*/
+
+.reviews-section {
+  font-family: Circular, '-apple-system', BlinkMacSystemFont, Roboto, 'Helvetica Neue', 'sans-serif';
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #DBDBDB;
+}
+
+.reviews-head {
+  height: 52px;
+  margin-top: 16px;
+  color: #484848;
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  line-height: 22px;
+  word-wrap: break-word;
+}
+
+.reviews-head img {
+  height: 48px;
+  width: 48px;
+  background: #D8D8D8;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  float: left;
+}
+
+.reviews-head-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: inherit;
+}
+
+.reviews-head-name {
+  height: 50%;
+  margin-left: 16px;
+  font-weight: normal;
+  color: #484848;
+  cursor: pointer;
+}
+
+.reviews-head-date {
+  height: 50%;
+  margin-left: 16px;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.reviews-body {
+  margin: 20px 0;
+  color: #484848;
+  word-wrap: break-word;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  font-weight: 300;
 }

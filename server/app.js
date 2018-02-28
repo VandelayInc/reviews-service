@@ -12,11 +12,26 @@ app.get('/rooms/:roomid/ratings', (req, res) => {
       throw err;
     }
 
-    console.log('Ratings from db: ', ratings);
+    //console.log('Ratings from db: ', ratings);
     res.status(200).send(ratings);
   };
 
   db.findRatings(req.params.roomid, returnRatings);
+});
+
+app.get('/rooms/:roomid/reviews', (req, res) => {
+  let returnReviews = (err, reviews) => {
+    if (err) {
+      console.log('Error retrieving reviews from db: ', err);
+      throw err;
+    }
+    console.log('Reviews from db: ', reviews);
+    res.status(200).send(reviews);
+  };
+
+  console.log('Get request to reviews path');
+  
+  db.findReviews(req.params.roomid, returnReviews);
 });
 
 module.exports = app;
