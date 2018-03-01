@@ -19,9 +19,8 @@ jobs:
       - run: yarn add react
       - run: yarn add react-test-renderer
       - run: yarn add babel-core
-      - run: babel-loader
-      - run: babel-preset-es2015
-      - run: babel-preset-react
+      - run: yarn add babel-loader
+      - run: yarn add babel-preset-env
       - save_cache:
           paths:
             - node_modules
