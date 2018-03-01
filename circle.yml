@@ -14,12 +14,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run: yarn install
-      - run: yarn add jest
-      - run: yarn add enzyme
-      - run: yarn add react
-      - run: yarn add react-test-renderer
-      - run: yarn add babel-core
-      - run: yarn add babel-loader
       - run: yarn add babel-preset-env
       - save_cache:
           paths:
