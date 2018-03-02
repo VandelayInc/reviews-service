@@ -32,6 +32,7 @@ class ReviewService extends React.Component {
   }
 
   render() {
+    this.state.reviews = this.state.reviews.concat(this.state.reviews);
     return (
       <div>
         <Rating listing_id={this.props.listing_id} numReviews={this.state.reviews.length} />
@@ -41,4 +42,4 @@ class ReviewService extends React.Component {
   }
 }
 
-ReactDOM.render( <ReviewService listing_id='21826970' />, document.getElementById('review-service'));
+ReactDOM.render( <ReviewService listing_id='12679234' />, document.getElementById('review-service'));
