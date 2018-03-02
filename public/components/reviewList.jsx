@@ -41,19 +41,19 @@ class ReviewList extends React.Component {
     let reviews = [];
     let lastPage = Math.ceil(this.props.reviews.length / 7);
     let reviewsNav = [
-      <button className="reviews-btn" onClick={this.handleClick.bind(this, -2)}>&lt;</button>,
-      <button className="reviews-btn" onClick={this.handleClick.bind(this, 1)}>1</button>
+      <button key={0} className="reviews-btn" onClick={this.handleClick.bind(this, -2)}>&lt;</button>,
+      <button key={1} className="reviews-btn" onClick={this.handleClick.bind(this, 1)}>1</button>
     ];
     this.props.reviews.forEach((review, index) => {
       if (index >= this.state.curIdx && index < this.state.curIdx + 7) {
         reviews.push(<ReviewListEntry review={review} key={index} />);
       }
       if (index > 0 && index % 7 === 0 && index / 7 + 1 < lastPage) {
-        reviewsNav.push(<button className="reviews-btn" onClick={this.handleClick.bind(this, index / 7 + 1)}>{index / 7 + 1}</button>);
+        reviewsNav.push(<button key={index} className="reviews-btn" onClick={this.handleClick.bind(this, index / 7 + 1)}>{index / 7 + 1}</button>);
       }
     });
-    reviewsNav.push(<button className="reviews-btn" onClick={this.handleClick.bind(this, lastPage)}>{lastPage}</button>);
-    reviewsNav.push(<button className="reviews-btn" onClick={this.handleClick.bind(this, -1)}>&gt;</button>);
+    reviewsNav.push(<button key={this.props.reviews.length} className="reviews-btn" onClick={this.handleClick.bind(this, lastPage)}>{lastPage}</button>);
+    reviewsNav.push(<button key={this.props.reviews.length + 1} className="reviews-btn" onClick={this.handleClick.bind(this, -1)}>&gt;</button>);
 
     return (
       <div className="reviews-section">

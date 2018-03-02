@@ -76,5 +76,33 @@ exports[`ReviewList/ReviewListEntry components render based on the passed in rev
       The apartment is in a great location. A lot of bars and restaurants around that you can walk to.
     </div>
   </div>
+  <div
+    className="reviews-nav"
+  >
+    <button
+      className="reviews-btn"
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <button
+      className="reviews-btn"
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="reviews-btn"
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="reviews-btn"
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </div>
 </div>
 `;
