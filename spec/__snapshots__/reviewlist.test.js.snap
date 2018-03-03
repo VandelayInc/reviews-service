@@ -80,28 +80,15 @@ exports[`ReviewList/ReviewListEntry components render based on the passed in rev
     className="reviews-nav"
   >
     <button
-      className="reviews-btn"
-      onClick={[Function]}
+      className="reviews-btn reviews-empty-btn"
     >
-      &lt;
+      .
     </button>
     <button
-      className="reviews-btn"
+      className="reviews-btn reviews-btn-1 reviews-btn-selected"
       onClick={[Function]}
     >
       1
-    </button>
-    <button
-      className="reviews-btn"
-      onClick={[Function]}
-    >
-      1
-    </button>
-    <button
-      className="reviews-btn"
-      onClick={[Function]}
-    >
-      &gt;
     </button>
   </div>
 </div>

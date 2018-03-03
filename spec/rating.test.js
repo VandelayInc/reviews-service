@@ -25,7 +25,7 @@ test('Rating component renders state with ratings object fetched from server', (
   let server = sinon.fakeServer.create();
   server.respondWith('GET', '/rooms/18359884/ratings', JSON.stringify(rating));
 
-  const wrapper = Enzyme.shallow(<Rating listing_id='18359884' />);
+  const wrapper = Enzyme.shallow(<Rating listing_id='18359884' handleSearch={() => {}} />);
   const instance = wrapper.instance();
 
   server.respond();
