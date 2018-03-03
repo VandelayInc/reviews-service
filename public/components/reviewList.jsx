@@ -49,9 +49,6 @@ class ReviewList extends React.Component {
       }
       this.selected = $(document).find('.reviews-btn-' + index);
       this.selected.addClass('reviews-btn-selected');
-      console.log('Index: ', index);
-      console.log('curIdx: ', this.state.curIdx);
-      console.log('Selected: ', this.selected);
     }
   }
 
@@ -75,15 +72,13 @@ class ReviewList extends React.Component {
         reviewsNav.push(<button key={index * -10} className={'reviews-btn reviews-btn-' + (index / 7 + 1)} onClick={this.handleClick.bind(this, index / 7 + 1)}>{index / 7 + 1}</button>);
       }
     });
-
+    
     if (lastPage > 1) {
       reviewsNav.push(<button key={this.props.reviews.length * -10} className={'reviews-btn reviews-btn-' + lastPage} onClick={this.handleClick.bind(this, lastPage)}>{lastPage}</button>);
     }
-    
     if (this.state.curIdx / 7 + 1 < lastPage) {
       reviewsNav.push(<button key={this.props.reviews.length * -10 + 1} className="reviews-btn reviews-btn-right" onClick={this.handleClick.bind(this, -1)}>`</button>);
     }
-    
     return reviewsNav;
   }
   
