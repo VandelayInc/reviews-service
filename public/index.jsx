@@ -9,14 +9,28 @@ class ReviewService extends React.Component {
     super(props);
 
     this.state = {
-      reviews: []
+      reviews: [],
+      filtered: []
     };
-
+    this.term = '';
     this.fetchReviews();
   }
 
   handleSearch(term) {
-    console.log('Searching reviews for: ', term);
+    if (term === '') {
+      this.term = '';
+      this.setState({
+        filtered: this.state.reviews
+      });
+      return;
+    }
+
+    this.setState({
+      filtered: this.state.reviews.filter((review) => {
+        return review.comments.includes(term);
+      })
+    });
+    this.term = term;
   }
 
   fetchReviews() {
@@ -25,21 +39,24 @@ class ReviewService extends React.Component {
       dataType: 'json',
       success: (data) => {
         this.setState({
-          reviews: data
+          reviews: data,
+          filtered: data
         });
       }
     });
   }
 
   render() {
-    this.state.reviews = this.state.reviews.concat(this.state.reviews);
     return (
       <div>
-        <Rating listing_id={this.props.listing_id} numReviews={this.state.reviews.length} />
-        <ReviewList reviews={this.state.reviews} />
+        <Rating listing_id={this.props.listing_id} numReviews={this.state.reviews.length} numSearch={this.state.filtered.length} handleSearch={this.handleSearch.bind(this)} term={this.term} />
+        <ReviewList reviews={this.state.filtered} />
       </div>
     );
   }
 }
 
 ReactDOM.render( <ReviewService listing_id='12679234' />, document.getElementById('review-service'));
+
+export default ReviewService;
+
