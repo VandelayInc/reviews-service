@@ -183,7 +183,7 @@
 
 .reviews-btn-left {
   color: #00878B;
-  background-image: url("left_nav.png");
+  background-image: url("./left_nav.png");
   background-position: center;
   background-size: 15px 15px;
   background-repeat: no-repeat;
@@ -191,7 +191,7 @@
 
 .reviews-btn-right {
   color: #fff;
-  background-image: url("right_nav.png");
+  background-image: url("./right_nav.png");
   background-position: center;
   background-size: 15px 15px;
   background-repeat: no-repeat;

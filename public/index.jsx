@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Rating from './components/rating.jsx';
 import ReviewList from './components/reviewList.jsx';
 import $ from 'jquery';
+import '../client/assets/styles.css';
 
 class ReviewService extends React.Component {
   constructor(props) {
@@ -58,7 +59,6 @@ class ReviewService extends React.Component {
 
 let listingId = window.location.href.split('/')[4];
 
-ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('review-service'));
+ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('reviews-service'));
 
 export default ReviewService;
-
