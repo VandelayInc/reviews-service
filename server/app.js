@@ -4,6 +4,7 @@ const app = express();
 const db = require('../database/index.js');
 
 app.use(express.static(__dirname + '/../client'));
+app.use('/rooms/:roomid', express.static(__dirname + '/../client'));
 
 app.get('/rooms/:roomid/ratings', (req, res) => {
   let returnRatings = (err, ratings) => {

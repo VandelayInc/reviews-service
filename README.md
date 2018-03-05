@@ -2,7 +2,6 @@
 
 This service accesses a database of room listings and renders ratings and reviews, in a style similar to Airbnb.
 
-https://trello-attachments.s3.amazonaws.com/5a8dd2ceda98917cf7844a42/5a8dd2ceda98917cf7844a4a/1275x593/03123ace9d08315cde4a0d1d37cd77f5/Airbnb_reviews.png
 
 ## Related Projects
 
