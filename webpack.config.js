@@ -15,7 +15,20 @@ var config = {
       {
         test : /\.jsx?/,
         include : APP_DIR,
-        loader : 'babel-loader'
+        loader : 'babel-loader',
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader','css-loader']
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'http://localhost:3004/assets/[name].[ext]'
+          }
+        }
       }
     ]
   }
