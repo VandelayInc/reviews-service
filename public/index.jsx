@@ -58,6 +58,9 @@ class ReviewService extends React.Component {
 }
 
 let listingId = window.location.href.split('/')[4];
+if (!listingId || listingId.length !== 8) {
+  listingId = '19570882';
+}
 
 ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('reviews-service'));
 

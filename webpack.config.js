@@ -26,7 +26,7 @@ var config = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'http://localhost:3004/assets/[name].[ext]'
+            name: 'http://18.188.51.95:80/assets/[name].[ext]'
           }
         }
       }

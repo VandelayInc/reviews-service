@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/hacknb');
+
+let mongoUrl = 'mongodb://database:27017/hacknb';
+
+mongoose.connect(mongoUrl, {reconnectTries: 25});
+// mongoose.connect('mongodb://localhost/hacknb');
 
 let db = mongoose.connection;
 

@@ -1,9 +1,19 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
 
-mongoose.connect('mongodb://localhost/hacknb');
+
+
+let mongoUrl = 'mongodb://database:27017/hacknb';
+
+mongoose.connect(mongoUrl, {reconnectTries: 25}).catch((err) => {
+  console.log('Error connecting to db: ', err);
+});
+// mongoose.connect('mongodb://localhost/hacknb');
 
 var db = mongoose.connection;
+db.catch((err) => {
+  console.log('Error connecting to db: ', err);
+});
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connected to database!');
@@ -68,7 +78,7 @@ db.once('open', function() {
       throw err;
     }
     data = JSON.parse(JSON.parse(data));
-    data.forEach((listing) => {
+    data.forEach((listing, index) => {
       listing.listing.listing_id = listing.listing.id;
       Rating.create(listing.listing, (err) => {
         if (err) {
