@@ -11,6 +11,7 @@
 .reviews-rating-section h2 {
   font-size: 25px;
   font-weight: 700;
+  padding-bottom: 11px;
 }
 
 .reviews-rating {
@@ -36,13 +37,19 @@
 }
 
 .reviews-rating-top input {
-  height: 18px;
+  height: 32px;
   font-size: 15px;
   line-height: 18px;
   letter-spacing: 0.2px;
   color: #484848;
   font-weight: normal;
   padding: 7px;
+  padding-left: 32px;
+  background-image: url("http://18.219.35.229:80/assets/search.png");
+  background-position: left;
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  border: 1px solid #DBDBDB;
 }
 
 .reviews-rating-head {
@@ -74,7 +81,7 @@
 .reviews-rating-body {
   display: flex;
   flex-flow: column wrap;
-  height: 205px;
+  height: 105px;
 }
 
 .reviews-rating-body h3 {

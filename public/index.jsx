@@ -28,7 +28,7 @@ class ReviewService extends React.Component {
 
     this.setState({
       filtered: this.state.reviews.filter((review) => {
-        return review.comments.includes(term);
+        return term.split(' ').length > 1 ? review.comments.toUpperCase().includes(term.toUpperCase()) : review.comments.toUpperCase().split(' ').includes(term.toUpperCase());
       })
     });
     this.term = term;
