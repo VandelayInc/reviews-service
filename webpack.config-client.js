@@ -1,26 +1,15 @@
 var webpack = require('webpack');
 var path = require('path');
-const nodeExternals = require('webpack-node-externals');
 
-var BUILD_DIR = path.resolve(__dirname, './dist');
+var BUILD_DIR = path.resolve(__dirname, './client');
 var APP_DIR = path.resolve(__dirname, './public');
-var SERVER_DIR = path.resolve(__dirname, './server');
 
 var config = {
-  entry: SERVER_DIR + '/index.js',
+  entry: APP_DIR + '/index.jsx',
   output: {
     path: BUILD_DIR,
-    filename: 'server.js'
+    filename: 'bundle.js'
   },
-  target: 'node',
-  externals: nodeExternals(),
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: `'production'`
-      }
-    })
-  ],
   module : {
     loaders : [
       {
@@ -29,13 +18,8 @@ var config = {
         loader : 'babel-loader',
       },
       {
-        test : /\.jsx?/,
-        include : SERVER_DIR,
-        loader : 'babel-loader',
-      },
-      {
         test:/\.css$/,
-        use:['isomorphic-style-loader', 'css-loader']
+        use:['style-loader','css-loader']
       },
       {
         test: /\.(png|jpg|jpeg|gif|ico|svg)$/,

@@ -53,7 +53,7 @@ class ReviewList extends React.Component {
   }
 
   genReviewsNav() {
-    if (this.props.reviews.length === 0) {
+    if (!this.props.reviews || this.props.reviews.length === 0) {
       return <div></div>;
     }
 

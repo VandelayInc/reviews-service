@@ -11,10 +11,17 @@ class ReviewService extends React.Component {
 
     this.state = {
       reviews: [],
-      filtered: []
+      filtered: [],
+      ratings: []
     };
     this.term = '';
-    this.fetchReviews();
+    if (this.props.reviews) {
+      this.state.reviews = this.props.reviews;
+      this.state.filtered = this.props.reviews;
+    }
+    if (this.props.ratings) {
+      this.state.ratings = this.props.ratings;
+    }
   }
 
   handleSearch(term) {
@@ -34,34 +41,16 @@ class ReviewService extends React.Component {
     this.term = term;
   }
 
-  fetchReviews() {
-    $.ajax('/rooms/' + this.props.listing_id + '/reviews/', {
-      method: 'GET',
-      dataType: 'json',
-      success: (data) => {
-        this.setState({
-          reviews: data,
-          filtered: data
-        });
-      }
-    });
-  }
-
   render() {
     return (
       <div>
-        <Rating listing_id={this.props.listing_id} numReviews={this.state.reviews.length} numSearch={this.state.filtered.length} handleSearch={this.handleSearch.bind(this)} term={this.term} />
+        <Rating ratings={this.state.ratings} listing_id={this.props.listing_id} numReviews={this.state.reviews.length} numSearch={this.state.filtered.length} handleSearch={this.handleSearch.bind(this)} term={this.term} />
         <ReviewList reviews={this.state.filtered} />
       </div>
     );
   }
 }
 
-let listingId = window.location.href.split('/')[4];
-if (!listingId || listingId.length !== 8) {
-  listingId = '19570882';
-}
-
-ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('reviews-service'));
+//ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('reviews-service'));
 
 export default ReviewService;

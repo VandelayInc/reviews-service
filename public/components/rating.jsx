@@ -8,20 +8,9 @@ class Rating extends React.Component {
     this.state = {
       ratings: {}
     };
-
-    this.fetchRatings();
-  }
-
-  fetchRatings() {
-    $.ajax('/rooms/' + this.props.listing_id + '/ratings/', {
-      method: 'GET',
-      dataType: 'json',
-      success: (data) => {
-        this.setState({
-          ratings: data
-        });
-      }
-    });
+    if (this.props.ratings) {
+      this.state.ratings = this.props.ratings;
+    }
   }
 
   genStarRating(rating) {
