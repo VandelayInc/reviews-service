@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 
-let mongoUrl = 'mongodb://database:27017/hacknb';
+// let mongoUrl = 'mongodb://database:27017/hacknb';
 
-mongoose.connect(mongoUrl, {reconnectTries: 25});
-// mongoose.connect('mongodb://localhost/hacknb');
+// mongoose.connect(mongoUrl, {reconnectTries: 25});
+mongoose.connect('mongodb://localhost/hacknb');
 
 let db = mongoose.connection;
 
@@ -33,8 +33,8 @@ let reviewSchema = mongoose.Schema({
     first_name: String,
     picture_url: String,
     comments: String,
-    has_profile_pic: Boolean,
-    identity_verified: Boolean
+    has_profile_pic: Boolean, // unused
+    identity_verified: Boolean // unused
   });
 
 let Reviews = mongoose.model('Reviews', reviewSchema);

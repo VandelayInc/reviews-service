@@ -17,6 +17,7 @@ class Rating extends React.Component {
       method: 'GET',
       dataType: 'json',
       success: (data) => {
+        console.log(data);
         this.setState({
           ratings: data
         });
@@ -34,9 +35,9 @@ class Rating extends React.Component {
 
     for (let i = 1; i <= rating; i++) {
       if (i % 2 === 0) {
-        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star" src="http://18.219.35.229:80/assets/star.png"></img>);
+        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star" src="http://localhost:3004/assets/star.png"></img>);
       } else if (i === rating) {
-        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star-half" src="http://18.219.35.229:80/assets/star_half.png"></img>);
+        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star-half" src="http://localhost:3004/assets/star_half.png"></img>);
       }
     }
     for (let i = 0; i < starRating.length - 5; i++) {

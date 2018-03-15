@@ -45,7 +45,7 @@
   font-weight: normal;
   padding: 7px;
   padding-left: 32px;
-  background-image: url("http://18.219.35.229:80/assets/search.png");
+  background-image: url("http://localhost:3004/assets/search.png");
   background-position: left;
   background-size: 32px 32px;
   background-repeat: no-repeat;
@@ -196,7 +196,7 @@
 
 .reviews-btn-left {
   color: #00878B;
-  background-image: url("http://18.219.35.229:80/assets/left_nav.png");
+  background-image: url("http://localhost:3004/assets/left_nav.png");
   background-position: center;
   background-size: 15px 15px;
   background-repeat: no-repeat;
@@ -204,7 +204,7 @@
 
 .reviews-btn-right {
   color: #fff;
-  background-image: url("http://18.219.35.229:80/assets/right_nav.png");
+  background-image: url("http://localhost:3004/assets/right_nav.png");
   background-position: center;
   background-size: 15px 15px;
   background-repeat: no-repeat;

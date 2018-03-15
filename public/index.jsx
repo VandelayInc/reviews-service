@@ -39,6 +39,7 @@ class ReviewService extends React.Component {
       method: 'GET',
       dataType: 'json',
       success: (data) => {
+        console.log(data);
         this.setState({
           reviews: data,
           filtered: data
