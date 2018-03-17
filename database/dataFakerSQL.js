@@ -1,7 +1,14 @@
-const mongoose = require('mongoose');
-const jsonfile = require('jsonfile');
+const mysql = require('mysql');
 const fs = require('fs');
 const faker = require('faker');
+
+const conn = mysql.createConnection({
+  host: 'localhost',
+  user: 'root'
+});
+
+conn.query();
+
 
 let ratingsFaker = function(ratingId) {
   const fakerRating = {
@@ -28,3 +35,9 @@ let reviewsFaker = function(reviewId) {
   return JSON.stringify(fakerReview);
 };
 
+conn.connect(function(err) {
+  if (err) {
+    throw err;
+  }
+  console.log('connected to mysql!');
+});

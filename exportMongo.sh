@@ -1,0 +1,1 @@
+mongoexport --db hackbnbtest --collection reviews --type=csv --fields _id,star_rating,review_rating_accuracy,review_rating_checkin,review_rating_cleanliness,review_rating_communication,review_rating_location,review_rating_value --out ./tenMil/allrevs.csv

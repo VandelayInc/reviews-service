@@ -14,7 +14,10 @@
     "start": "node ./server/index.js",
     "seed": "node ./database/seed.js",
     "faker": "node ./database/dataFaker.js",
-    "docker": "node ./database/seed.js & node ./server/index.js"
+    "docker": "node ./database/seed.js & node ./server/index.js",
+    "sql": "mysql -u root --local-infile < schema.sql",
+    "sqlmaker": "mysql -u root < schema.sql",
+    "sqlseed": "node ./database/dataFakerSQL.js"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -33,6 +36,7 @@
     "jsonfile": "^4.0.0",
     "mongodb": "^3.0.4",
     "mongoose": "^5.0.6",
+    "mysql": "^2.15.0",
     "nodemon": "^1.15.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
