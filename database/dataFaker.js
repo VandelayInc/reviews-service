@@ -17,39 +17,58 @@ let ratingsFaker = function(ratingId) {
 };
 
 
-var stream = fs.createWriteStream('./tenMil/bigTwo.json');
-let writeFilesForRatings = (n = 1e7) => {
+var stream = fs.createWriteStream('./tenMil/test.json');
+let writeFilesForRatings = (n = 1e4) => {
   let isReady = true;
   while (n > 0 && isReady) {
     if (n === 1) {
-      isReady = stream.write(ratingsFaker(n));
+      isReady = stream.write(`${ratingsFaker(n)}`);
     } else {
       isReady = stream.write(`${ratingsFaker(n)}\n`);
     }
     n -= 1;
-  } 
-  stream.once('drain', () => {
-    writeFilesForRatings(n);
-  });
+  }
+  if (n > 0) {
+    stream.once('drain', () => {
+      writeFilesForRatings(n);
+    });
+  }
   console.log('draining at n =', n);
 };
 
 writeFilesForRatings();
 
+let reviewsFaker = function(reviewId) {
+  const fakerReview = {
+    listing_id: reviewId,
+    created_at: faker.date.past(),
+    first_name: faker.name.firstName(),
+    picture_url: faker.image.imageUrl(),
+    comments: faker.lorem.paragraph()
+  };
+  return JSON.stringify(fakerReview);
+};
+
+// var stream = fs.createWriteStream('./tenMil/reviews2.json');
+let writeFilesForReviews = (n = 1e8) => {
+  debugger;
+  let isReady = true;
+  while (n > 0 && isReady) {
+    if (n === 1) {
+      isReady = stream.write(reviewsFaker(n));
+    } else {
+      isReady = stream.write(`${reviewsFaker(n)}\n`);
+    }
+    n -= 1;
+  } 
+  stream.once('drain', () => {
+    writeFilesForReviews(n);
+  });
+  console.log('draining at n =', n);
+};
 
 
-
-
-// let reviewsFaker = function(reviewId) {
-//   const fakerReview = {
-//     listing_id: reviewId,
-//     created_at: faker.date.past(),
-//     first_name: faker.name.firstName(),
-//     picture_url: faker.lorem.word(),
-//     comments: faker.lorem.sentence()
-//   };
-//   return JSON.stringify(fakerReview);
-// };
+// writeFilesForReviews();
 
 // let writeFilesForReviews = (n) => {
 //   const files = ['firstMilRev', 'secondMilRev', 'thirdMilRev', 'fourthMilRev', 'fifthMilRev', 'sixthMilRev', 'seventhMilRev', 'eighthMilRev', 'ninthMilRev', 'tenthMilRev'];
