@@ -18,7 +18,8 @@
     "sql": "mysql -u root --local-infile < schema.sql",
     "sqlmaker": "mysql -u root < schema.sql",
     "sqlseed": "node ./database/dataFakerSQL.js",
-    "images": "node ./database/imageGen.js"
+    "images": "node ./database/imageGen.js",
+    "writeids": "node ./database/writeIds.js"
   },
   "dependencies": {
     "aws-sdk": "^2.211.1",
