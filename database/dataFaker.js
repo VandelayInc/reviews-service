@@ -19,7 +19,7 @@ const ids = require('./../assets/ids.js');
 
 let ratingsFirstLine = 'listing_id,star_rating,review_rating_accuracy,review_rating_checkin,review_rating_cleanliness,review_rating_communication,review_rating_location,review_rating_value';
 
-var stream = fs.createWriteStream('./tenMilCSV/ratingsAll.csv');
+// var stream = fs.createWriteStream('./tenMilCSV/ratingsAll.csv');
 let writeFilesForRatings = (n = 0) => {
   let isReady = true;
   while (n < 1e7 + 1 && isReady) {
@@ -40,7 +40,7 @@ let writeFilesForRatings = (n = 0) => {
   // console.log('draining at n =', n);
 };
 
-writeFilesForRatings();
+// writeFilesForRatings();
 
 
 
@@ -59,7 +59,7 @@ writeFilesForRatings();
 
 let reviewsFirstLine = 'listing_id,created_at,first_name,picture_url,comments';
 
-// var stream = fs.createWriteStream('./tenMilCSV/reviewsAll.csv');
+var stream = fs.createWriteStream('./tenMilCSV/reviewsAll.csv');
 let writeFilesForReviews = (n = 0, imageNumber = 0) => {
   // n % 10 has 4 reviews
   // n % 20 has 6 reviews
@@ -128,7 +128,7 @@ let writeFilesForReviews = (n = 0, imageNumber = 0) => {
   console.log('draining at n =', n);
 };
 
-// writeFilesForReviews();
+writeFilesForReviews();
 
 
 

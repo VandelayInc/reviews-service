@@ -59,10 +59,12 @@ class ReviewService extends React.Component {
 }
 
 let listingId = window.location.href.split('/')[4];
-if (!listingId || listingId.length !== 8) {
-  listingId = '19570882';
+if (!listingId) {
+  listingId = '500000';
 }
 
 ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('reviews-service'));
 
 export default ReviewService;
+
+// || listingId.length !== 8 // line of code extracted from the conditional in line 62

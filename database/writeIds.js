@@ -10,7 +10,7 @@ const stream = fs.createWriteStream('./assets/ids.js');
 const writer = (n) => {
   let isReady = true;
   while (isReady && n < 10001) {
-    var url = `"d1b58ce4uxxk9l.cloudfront.net/profile_pics/image${n}.png"`;
+    var url = `"https://d1b58ce4uxxk9l.cloudfront.net/profile_pics/image${n}.png"`;
     if (n === 1) {
       isReady = stream.write(`const ids = [${url},\n`);
     } else if (n === 10000) {
