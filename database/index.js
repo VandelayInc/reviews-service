@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 
 // let mongoUrl = 'mongodb://database:27017/hacknb';
-
 // mongoose.connect(mongoUrl, {reconnectTries: 25});
+
 mongoose.connect('mongodb://localhost/hackbnbtest');
 
 let db = mongoose.connection;

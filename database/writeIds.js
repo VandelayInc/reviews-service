@@ -89,7 +89,7 @@ const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/testNu
 const writer = (n = 1) => {
   let isReady = true;
   while (isReady && n < 3e6 + 1) {
-    var randNum = Math.floor((Math.random() * 1e6) + 1)
+    var randNum = Math.floor((Math.random() * 1e7) + 1);
     var url = `GET http://localhost:3004/rooms/${randNum}/reviews/`;
     if (n !== 3e6) {
       isReady = stream.write(`${url}\n`);
@@ -223,6 +223,33 @@ writer();
 //     var randNum = Math.floor((Math.random() * 1e6) + 1)
 //     var url = `GET http://18.144.22.138:3002/api/rooms/${randNum}/description/`;
 //     if (n !== 1e6) {
+//       isReady = stream.write(`${url}\n`);
+//     } else {
+//       isReady = stream.write(`${url}`);
+//     }
+//     n += 1;
+//   }
+//   stream.once('drain', () => {
+//     writer(n);
+//   });
+//   console.log('draining at ', n);
+// };
+
+// writer();
+
+
+
+// ==== James ==== //
+// http://ec2-54-183-163-197.us-west-1.compute.amazonaws.com/restaurants/875234/
+
+// const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/testNuke2.txt');
+
+// const writer = (n = 1) => {
+//   let isReady = true;
+//   while (isReady && n < 10e6 + 1) {
+//     var randNum = Math.floor((Math.random() * 1e7) + 1);
+//     var url = `GET http://34.224.31.60:4001/restaurants/serverside/${randNum}/`;
+//     if (n !== 10e6) {
 //       isReady = stream.write(`${url}\n`);
 //     } else {
 //       isReady = stream.write(`${url}`);

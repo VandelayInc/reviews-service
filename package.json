@@ -19,7 +19,8 @@
     "sqlmaker": "mysql -u root < schema.sql",
     "sqlseed": "node ./database/dataFakerSQL.js",
     "images": "node ./database/imageGen.js",
-    "writeids": "node ./database/writeIds.js"
+    "writeids": "node ./database/writeIds.js",
+    "dist": "node ./load_testing/distAttack.js"
   },
   "dependencies": {
     "aws-sdk": "^2.211.1",
