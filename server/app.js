@@ -1,8 +1,10 @@
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const app = express();
 const db = require('../database/index.js');
 
+// app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client'));
 app.use('/rooms/:roomid', express.static(__dirname + '/../client'));
 
