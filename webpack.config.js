@@ -20,16 +20,16 @@ var config = {
       {
         test:/\.css$/,
         use:['style-loader','css-loader']
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: 'http://18.219.35.229:80/assets/[name].[ext]'
-          }
-        }
       }
+      // {
+      //   test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
+      //   use: {
+      //     loader: 'file-loader',
+      //     options: {
+      //       name: 'http://18.219.35.229:80/assets/[name].[ext]'
+      //     }
+      //   }
+      // }
     ]
   }
 };

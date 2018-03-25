@@ -35,9 +35,9 @@ class Rating extends React.Component {
 
     for (let i = 1; i <= rating; i++) {
       if (i % 2 === 0) {
-        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star" src="http://localhost:3004/assets/star.png"></img>);
+        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star" src="https://d1b58ce4uxxk9l.cloudfront.net/assets/star.png"></img>);
       } else if (i === rating) {
-        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star-half" src="http://localhost:3004/assets/star_half.png"></img>);
+        starRating.push(<img key={i} className="reviews-rating-cell reviews-rating-star-half" src="https://d1b58ce4uxxk9l.cloudfront.net/assets/star_half.png"></img>);
       }
     }
     for (let i = 0; i < starRating.length - 5; i++) {
@@ -48,7 +48,7 @@ class Rating extends React.Component {
   }
 
   render() {
-    let overallRating = this.genStarRating(this.state.ratings.star_rating * 2);
+    let overallRating = this.genStarRating(this.state.ratings.star_rating);
     let accRating = this.genStarRating(this.state.ratings.review_rating_accuracy);
     let commRating = this.genStarRating(this.state.ratings.review_rating_communication);
     let cleanRating = this.genStarRating(this.state.ratings.review_rating_cleanliness);
