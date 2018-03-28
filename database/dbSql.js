@@ -2,7 +2,8 @@ const mysql = require('mysql');
 
 const conn = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: 'root', //remote 
+  // password: remote
   database: 'hackbnbtest'
 });
 

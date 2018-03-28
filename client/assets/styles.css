@@ -81,7 +81,7 @@
 .reviews-rating-body {
   display: flex;
   flex-flow: column wrap;
-  height: 105px;
+  height: 210px;
 }
 
 .reviews-rating-body h3 {
