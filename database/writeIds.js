@@ -84,17 +84,27 @@ const fs = require('fs');
 // writer();
 
 // ==== Mine: writing IDs to hit the API, on the reviews table only ==== //
-const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/testNuke.txt'); // absolute path to where you are running the vegeta go script. The txt file with all the ids to hit needs to be in there
+// split even between ratings and reviews
+const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/randomDist.txt'); // absolute path to where you are running the vegeta go script. The txt file with all the ids to hit needs to be in there
 
 const writer = (n = 1) => {
   let isReady = true;
   while (isReady && n < 3e6 + 1) {
     var randNum = Math.floor((Math.random() * 1e7) + 1);
-    var url = `GET http://localhost:3004/rooms/${randNum}/reviews/`;
-    if (n !== 3e6) {
-      isReady = stream.write(`${url}\n`);
+    if (n % 2 === 0) {
+      var url = `GET http://localhost:3004/rooms/${randNum}/ratings/`;
+      if (n !== 3e6) {
+        isReady = stream.write(`${url}\n`);
+      } else {
+        isReady = stream.write(`${url}`);
+      }
     } else {
-      isReady = stream.write(`${url}`);
+      var url = `GET http://localhost:3004/rooms/${randNum}/reviews/`;
+      if (n !== 3e6) {
+        isReady = stream.write(`${url}\n`);
+      } else {
+        isReady = stream.write(`${url}`);
+      }
     }
     n += 1;
   }

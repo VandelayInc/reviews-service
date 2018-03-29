@@ -17,16 +17,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-// =================================================== //
-// ================= Mongo Connection ================ //
-// =================================================== //
+// ============================================================== //
+// ================= Mongo With Redis Connection ================ //
+// ============================================================== //
 app.get('/rooms/:roomid/ratings', redisCacheRatings, (req, res) => {
   const returnRatings = (err, ratings) => {
     if (err) {
       console.log('Error retrieving ratings from dbMongo: ', err);
       throw err;
     }
-    redisClient.setex(req.params.roomid + 'rating', 30, JSON.stringify(ratings));
+    redisClient.set(req.params.roomid + 'rating', JSON.stringify(ratings));
     res.status(200).send(ratings);
   };
 
@@ -39,12 +39,42 @@ app.get('/rooms/:roomid/reviews', redisCacheReviews, (req, res) => {
       console.log('Error retrieving reviews from dbMongo: ', err);
       throw err;
     }
-    redisClient.setex(req.params.roomid + 'review', 30, JSON.stringify(reviews));
+    redisClient.set(req.params.roomid + 'review', JSON.stringify(reviews));
     res.status(200).send(reviews);
   };
   
   dbMongo.findReviews(req.params.roomid, returnReviews);
 });
+
+
+// ======================================================== //
+// ================= Mongo Only Connection ================ //
+// ======================================================== //
+// app.get('/rooms/:roomid/ratings', (req, res) => {
+//   const returnRatings = (err, ratings) => {
+//     if (err) {
+//       console.log('Error retrieving ratings from dbMongo: ', err);
+//       throw err;
+//     }
+//     res.status(200).send(ratings);
+//   };
+
+//   dbMongo.findRatings(req.params.roomid, returnRatings);
+// });
+
+// app.get('/rooms/:roomid/reviews', (req, res) => {
+//   const returnReviews = (err, reviews) => {
+//     if (err) {
+//       console.log('Error retrieving reviews from dbMongo: ', err);
+//       throw err;
+//     }
+//     res.status(200).send(reviews);
+//   };
+  
+//   dbMongo.findReviews(req.params.roomid, returnReviews);
+// });
+
+
 
 // =================================================== //
 // ================= MySQL Connection ================ //

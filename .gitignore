@@ -30,3 +30,6 @@ tenMil1/
 profilePics/
 assets/
 load_testing/
+
+# redis
+dump.rdb
