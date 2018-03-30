@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 
-const { redisClient, redisCacheRatings, redisCacheReviews } = require('./redis.js');
+// const { redisClient, redisCacheRatings, redisCacheReviews } = require('./redis.js');
 const dbMongo = require('../database/index.js');
 // const dbSql = require('../database/dbSql.js');
 
@@ -17,34 +17,64 @@ app.use(function(req, res, next) {
   next();
 });
 
-// =================================================== //
-// ================= Mongo Connection ================ //
-// =================================================== //
-app.get('/rooms/:roomid/ratings', redisCacheRatings, (req, res) => {
+// ============================================================== //
+// ================= Mongo With Redis Connection ================ //
+// ============================================================== //
+// app.get('/rooms/:roomid/ratings', redisCacheRatings, (req, res) => {
+//   const returnRatings = (err, ratings) => {
+//     if (err) {
+//       console.log('Error retrieving ratings from dbMongo: ', err);
+//       throw err;
+//     }
+//     redisClient.set(req.params.roomid + 'rating', JSON.stringify(ratings));
+//     res.status(200).send(ratings);
+//   };
+
+//   dbMongo.findRatings(req.params.roomid, returnRatings);
+// });
+
+// app.get('/rooms/:roomid/reviews', redisCacheReviews, (req, res) => {
+//   const returnReviews = (err, reviews) => {
+//     if (err) {
+//       console.log('Error retrieving reviews from dbMongo: ', err);
+//       throw err;
+//     }
+//     redisClient.set(req.params.roomid + 'review', JSON.stringify(reviews));
+//     res.status(200).send(reviews);
+//   };
+  
+//   dbMongo.findReviews(req.params.roomid, returnReviews);
+// });
+
+
+// ======================================================== //
+// ================= Mongo Only Connection ================ //
+// ======================================================== //
+app.get('/rooms/:roomid/ratings', (req, res) => {
   const returnRatings = (err, ratings) => {
     if (err) {
       console.log('Error retrieving ratings from dbMongo: ', err);
       throw err;
     }
-    redisClient.setex(req.params.roomid + 'rating', 30, JSON.stringify(ratings));
     res.status(200).send(ratings);
   };
 
   dbMongo.findRatings(req.params.roomid, returnRatings);
 });
 
-app.get('/rooms/:roomid/reviews', redisCacheReviews, (req, res) => {
+app.get('/rooms/:roomid/reviews', (req, res) => {
   const returnReviews = (err, reviews) => {
     if (err) {
       console.log('Error retrieving reviews from dbMongo: ', err);
       throw err;
     }
-    redisClient.setex(req.params.roomid + 'review', 30, JSON.stringify(reviews));
     res.status(200).send(reviews);
   };
   
   dbMongo.findReviews(req.params.roomid, returnReviews);
 });
+
+
 
 // =================================================== //
 // ================= MySQL Connection ================ //
@@ -72,6 +102,9 @@ app.get('/rooms/:roomid/reviews', redisCacheReviews, (req, res) => {
   
 //   dbSql.findSqlReviews(req.params.roomid, returnReviews);
 // });
+
+
+
 
 
 

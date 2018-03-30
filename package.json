@@ -8,6 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "deploy2": "SDC_MONGO=172.31.13.44:27017 node ./server/index.js",
+    "deploy1": "SDC_MONGO=172.31.13.44 node ./server/index.js",
+    "deploy1redis": "SDC_MONGO=172.31.13.44:27017 SDC_REDIS=172.31.3.20 node ./server/index.js",
+    "deploy2redis": "SDC_MONGO=172.31.13.44 SDC_REDIS=172.31.3.20:6379 node ./server/index.js",
     "react-dev": "webpack -d --watch",
     "server": "nodemon ./server/index.js",
     "test": "jest -u",

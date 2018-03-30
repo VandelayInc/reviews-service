@@ -1,5 +1,6 @@
+const redisUrl = process.env.SDC_REDIS || 6379;
 const redis = require('redis');
-const redisClient = redis.createClient(6379);
+const redisClient = redis.createClient(redisUrl);
 
 const redisCacheRatings = (req, res, next) => {
   const { roomid } = req.params;
