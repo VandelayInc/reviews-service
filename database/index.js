@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-
+const sdcMongo = process.env.SDC_MONGO || 'localhost';
 // let mongoUrl = 'mongodb://database:27017/hacknb';
 // mongoose.connect(mongoUrl, {reconnectTries: 25});
 
-mongoose.connect('mongodb://54.183.253.246/hackbnbtest');
+mongoose.connect(`mongodb://${sdcMongo}/hackbnbtest`);
+// mongoose.connect('mongodb://localhost/hackbnbtest');
 
 let db = mongoose.connection;
 
@@ -23,27 +24,27 @@ let Ratings = mongoose.model('Ratings', ratingSchema);
 
 let findRatings = (id, callback) => {
   Ratings.findOne().
-  where('listing_id').equals(id).
-  exec(callback);
+    where('listing_id').equals(id).
+    exec(callback);
 };
 
 let reviewSchema = mongoose.Schema({
-    listing_id: Number,
-    created_at: String,
-    first_name: String,
-    picture_url: String,
-    comments: String,
-    has_profile_pic: Boolean, // unused
-    identity_verified: Boolean // unused
-  });
+  listing_id: Number,
+  created_at: String,
+  first_name: String,
+  picture_url: String,
+  comments: String,
+  has_profile_pic: Boolean, // unused
+  identity_verified: Boolean // unused
+});
 
 let Reviews = mongoose.model('Reviews', reviewSchema);
 
 let findReviews = (id, callback) => {
   Reviews.find().
-  where('listing_id').equals(id).
-  exec(callback);
-}
+    where('listing_id').equals(id).
+    exec(callback);
+};
 
 exports.findRatings = findRatings;
 exports.findReviews = findReviews;

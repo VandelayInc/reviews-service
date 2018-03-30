@@ -83,8 +83,11 @@ const fs = require('fs');
 
 // writer();
 
+
+// ======== FOR MICROSERVICE ======= //
 // ==== Mine: writing IDs to hit the API, on the reviews table only ==== //
 // split even between ratings and reviews
+
 const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/randomDist.txt'); // absolute path to where you are running the vegeta go script. The txt file with all the ids to hit needs to be in there
 
 const writer = (n = 1) => {
@@ -115,6 +118,40 @@ const writer = (n = 1) => {
 };
 
 writer();
+
+// ======= for the PROXY SERVER!!!! =======//
+
+// const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/randomDist.txt'); // absolute path to where you are running the vegeta go script. The txt file with all the ids to hit needs to be in there
+
+// const writer = (n = 1) => {
+//   let isReady = true;
+//   while (isReady && n < 3e6 + 1) {
+//     var randNum = Math.floor((Math.random() * 1e7) + 1);
+//     if (n % 2 === 0) {
+//       var url = `GET http://localhost:3000/rooms/${randNum}/ratings/`;
+//       if (n !== 3e6) {
+//         isReady = stream.write(`${url}\n`);
+//       } else {
+//         isReady = stream.write(`${url}`);
+//       }
+//     } else {
+//       var url = `GET http://localhost:3000/rooms/${randNum}/reviews/`;
+//       if (n !== 3e6) {
+//         isReady = stream.write(`${url}\n`);
+//       } else {
+//         isReady = stream.write(`${url}`);
+//       }
+//     }
+//     n += 1;
+//   }
+//   stream.once('drain', () => {
+//     writer(n);
+//   });
+//   console.log('draining at ', n);
+// };
+
+// writer();
+
 
 // ==== Mine: writing IDs to hit the API, on the ratings table only ==== //
 // const stream = fs.createWriteStream('/Users/madlic/go/src/vegeta_breaker2/testNuke.txt');
