@@ -8,6 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "ssr": "webpack -p && npm run start",
     "deploy2": "SDC_MONGO=172.31.13.44:27017 node ./server/index.js",
     "deploy1": "SDC_MONGO=172.31.13.44 node ./server/index.js",
     "deploy1redis": "SDC_MONGO=172.31.13.44:27017 SDC_REDIS=172.31.3.20 node ./server/index.js",
@@ -25,8 +26,7 @@
     "images": "node ./database/imageGen.js",
     "writeids": "node ./database/writeIds.js",
     "dist": "node ./load_testing/distAttack.js",
-    "build-ssr": "webpack --config webpack.ssr.config.js",
-    "ssr": "node ./ssr/hypernova-server.js"
+    "build-ssr": "webpack --config webpack.ssr.config.js"
   },
   "dependencies": {
     "aws-sdk": "^2.211.1",

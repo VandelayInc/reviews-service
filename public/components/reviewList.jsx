@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReviewListEntry from './reviewListEntry.jsx';
 import $ from 'jquery';
@@ -21,7 +22,7 @@ class ReviewList extends React.Component {
         if (this.selected) {
           this.selected.removeClass('reviews-btn-selected');
         }
-        this.selected = $(document).find('.reviews-btn-' + (newIndex / 7 + 1));
+        this.selected = $('.reviews-btn-' + (newIndex / 7 + 1));
         this.selected.addClass('reviews-btn-selected');
       }
     } else if (index === -1) {
@@ -33,9 +34,9 @@ class ReviewList extends React.Component {
         if (this.selected) {
           this.selected.removeClass('reviews-btn-selected');
         } else {
-          $(document).find('.reviews-btn-1').removeClass('reviews-btn-selected');
+          $('.reviews-btn-1').removeClass('reviews-btn-selected');
         }
-        this.selected = $(document).find('.reviews-btn-' + (newIndex / 7 + 1));
+        this.selected = $('.reviews-btn-' + (newIndex / 7 + 1));
         this.selected.addClass('reviews-btn-selected');
       }
     } else if (index !== this.state.curIdx) {
@@ -45,9 +46,9 @@ class ReviewList extends React.Component {
       if (this.selected) {
         this.selected.removeClass('reviews-btn-selected');
       } else {
-        $(document).find('.reviews-btn-1').removeClass('reviews-btn-selected');
+        $('.reviews-btn-1').removeClass('reviews-btn-selected');
       }
-      this.selected = $(document).find('.reviews-btn-' + index);
+      this.selected = $('.reviews-btn-' + index);
       this.selected.addClass('reviews-btn-selected');
     }
   }

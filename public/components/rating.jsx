@@ -9,11 +9,18 @@ class Rating extends React.Component {
       ratings: {}
     };
 
+  }
+
+  componentDidMount() {
     this.fetchRatings();
   }
 
   fetchRatings() {
-    $.ajax('/rooms/' + this.props.listing_id + '/ratings/', {
+    let listingId = window.location.href.split('/')[4];
+    if (!listingId) {
+      listingId = '500000';
+    }
+    $.ajax('/rooms/' + listingId + '/ratings/', {
       method: 'GET',
       dataType: 'json',
       success: (data) => {

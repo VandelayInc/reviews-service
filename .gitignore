@@ -33,3 +33,8 @@ load_testing/
 
 # redis
 dump.rdb
+
+# bundle stuff
+client/app.js
+client/bundle-server.js
+bundle.js
