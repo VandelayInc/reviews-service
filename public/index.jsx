@@ -58,10 +58,10 @@ class ReviewService extends React.Component {
   }
 }
 
-let listingId = window.location.href.split('/')[4];
-if (!listingId) {
-  listingId = '500000';
-}
+// let listingId = window.location.href.split('/')[4];
+// if (!listingId) {
+let listingId = '500000';
+// }
 
 ReactDOM.render( <ReviewService listing_id={listingId} />, document.getElementById('reviews-service'));
 
